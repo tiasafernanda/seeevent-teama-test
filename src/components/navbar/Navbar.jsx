@@ -1,36 +1,25 @@
 import React from 'react';
-import { Nav, NavItem } from 'react-bootstrap';
+import navbarlogo from './assets/navbar-logo.png';
+import styles from './assets/navbar.module.scss';
 
 export default function Navbar() {
   return (
-    <div>
-      <Navbar inverse collapseOnSelect>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <a href='#brand'>React-Bootstrap</a>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav>
-            <NavItem eventKey={1} href='#'>
-              Link
-            </NavItem>
-            <NavItem eventKey={2} href='#'>
-              Link
-            </NavItem>
-          </Nav>
-          <Nav pullRight>
-            <NavItem eventKey={1} href='#'>
-              Link Right
-            </NavItem>
-            <NavItem eventKey={2} href='#'>
-              Link Right
-            </NavItem>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-      ;
+    <div className={styles.container}>
+      <header className='d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom'>
+        <a
+          href='/'
+          className='d-flex align-items-center col-md-3 mb-2 mb-md-0 ms-1  text-dark text-decoration-none'
+        >
+          <img src={navbarlogo} height='40' alt='...' />
+        </a>
+
+        <div className='col-md-3 pe-3 text-end'>
+          <a className='me-4' href='#'>
+            Sign Up
+          </a>
+          <a href='#'>Sign In</a>
+        </div>
+      </header>
     </div>
   );
 }

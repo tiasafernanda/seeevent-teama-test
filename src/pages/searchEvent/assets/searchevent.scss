@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+.searchevent {
+  margin: 3rem;
+  font-family: 'Noto Sans';
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  h3 {
+    margin-left: 1.3rem;
+  }
+
+  .search-filter {
+    padding-top: 1rem;
+    display: flex;
+    width: 50%;
+    margin-left: 1.3rem;
+
+    .form-select {
+      border: 1px solid;
+      border-radius: 10px;
+      margin-right: 1rem;
+      border-color: #b4b4bb;
+
+      option {
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .search-result {
+    margin: 5rem;
+
+    h5 {
+      background-color: #f0f2e9;
+      text-align: center;
+      width: 40%;
+      font-size: 12px;
+      padding: 4px 16px;
+      color: #214457;
+      border-radius: 4px;
+    }
+
+    .date {
+      font-size: 12px;
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 19.6px;
+    }
+
+    .host {
+      font-size: 12px;
+      color: #999999;
+    }
+
+    .card {
+      border-style: none;
+    }
+
+    .card:hover {
+      box-shadow: 2px 4px 16px 2px rgba(33, 68, 87, 0.15);
+      // opacity: 15%;
+    }
+
+    .card-img-top {
+      max-height: 200px;
+    }
+  }
+
+  .pagination {
+    a {
+      border-radius: 0;
+      border: 0;
+    }
+
+    a:hover {
+      color: #f2d555;
+    }
+  }
+}

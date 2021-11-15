@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+.container {
+  background-color: #214457;
+  max-width: inherit;
+  font-family: 'Noto Sans';
+  color: white;
+
+  header {
+    padding: 4rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  a:visited {
+    color: white;
+  }
+
+  a:hover {
+    color: #f2d555;
+  }
+}
