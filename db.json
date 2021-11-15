@@ -1,0 +1,39 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "image": "https://mt.itera.ac.id/wp-content/uploads/2020/03/placeholder.png",
+      "category": "Design",
+      "date": "SUN, OCT 24 @ 1:15 AM ICT",
+      "title": "How to make your business growth 10 times within 1 year",
+      "author": "Adit nento"
+    },
+
+    {
+      "id": 2,
+      "image": "https://mt.itera.ac.id/wp-content/uploads/2020/03/placeholder.png",
+      "category": "Design",
+      "date": "SUN, OCT 24 @ 1:15 AM ICT",
+      "title": "How to make your business growth 10 times within 1 year",
+      "author": "Adit nento"
+    },
+
+    {
+      "id": 3,
+      "image": "https://mt.itera.ac.id/wp-content/uploads/2020/03/placeholder.png",
+      "category": "Design",
+      "date": "SUN, OCT 24 @ 1:15 AM ICT",
+      "title": "How to make your business growth 10 times within 1 year",
+      "author": "Adit nento"
+    },
+
+    {
+      "id": 4,
+      "image": "https://mt.itera.ac.id/wp-content/uploads/2020/03/placeholder.png",
+      "category": "Design",
+      "date": "SUN, OCT 24 @ 1:15 AM ICT",
+      "title": "How to make your business growth 10 times within 1 year",
+      "author": "Adit nento"
+    }
+  ]
+}

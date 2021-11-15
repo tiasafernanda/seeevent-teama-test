@@ -1,0 +1,184 @@
+.Container2 {
+  padding: 0 270px;
+}
+
+.title {
+  text-align: left;
+}
+.description {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.date-description {
+  margin: 0 15px;
+}
+
+.main-image {
+  display: flex;
+}
+
+.detail-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.detail {
+  text-align: left;
+  width: 570px;
+}
+.paragraph {
+  text-align: left;
+}
+.link {
+  background-color: #f0f2e9;
+  color: #214457;
+  margin-left: 25px;
+  padding: 4px 25px;
+  border-radius: 7px;
+}
+
+.profile-author {
+  display: flex;
+  margin: 30px 0;
+  align-items: center;
+}
+
+.picture-author {
+  border-radius: 50%;
+  height: 50px;
+  margin-right: 20px;
+}
+.created {
+  font-size: 11px;
+}
+
+.updated {
+  font-size: 17px;
+  color: #373737;
+  font-weight: bold;
+  margin: 0;
+}
+
+.created-text {
+  text-align: left;
+  margin: 0;
+}
+
+.updated-text {
+  margin: 0;
+  font-weight: bold;
+  font-size: small;
+}
+
+.btn-profile {
+  display: flex;
+  justify-content: center;
+}
+
+.share {
+  display: flex;
+  flex-direction: row;
+  color: #214457;
+  background-color: #ffffff;
+  align-items: center;
+  border-radius: 8px;
+  margin: auto;
+  border: 1px solid #214457;
+  width: 95px;
+}
+
+.save {
+  display: flex;
+  flex-direction: row;
+  color: #ffffff;
+  background-color: #214457;
+  align-items: center;
+  border-radius: 8px;
+  width: 87px;
+  margin: auto;
+  border: 1px solid #214457;
+  width: 95px;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  padding: inherit;
+  font-weight: bold;
+}
+
+.profile-comment {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-comment {
+  display: flex;
+  margin: 13px 0;
+}
+
+.picture-comment {
+  border-radius: 50%;
+  height: fit-content;
+}
+.name-comment {
+  margin: 0;
+}
+
+.date-comment {
+  color: #373737;
+  margin: 0;
+}
+
+.data-comment {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+}
+.text-comment {
+  display: flex;
+  margin: 0;
+}
+
+.type-comment {
+  display: flex;
+  flex-direction: column;
+  width: 496px;
+}
+
+.box-comment {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  height: 128px;
+  width: 496px;
+  resize: none;
+  border-radius: 9px;
+  margin-bottom: 29px;
+  font-size: large;
+  border-color: #214457;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.Submit {
+  display: flex;
+  justify-content: right;
+}
+
+.text-submit {
+  color: #ffffff;
+  margin-left: 15px;
+  font-weight: bold;
+}
+.btn-submit {
+  background-color: #214457;
+  width: 184px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #214457;
+  border-radius: 9px;
+}
