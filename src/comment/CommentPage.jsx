@@ -121,9 +121,7 @@ const CommentPage = () => {
                 <div className="created">
                   <p className="created-text">Created by</p>
                 </div>
-                <div className="updated-text">
-                  <h5>Pratur Anahata Pratama</h5>
-                </div>
+                <div className="updated-text">Pratur Anahata Pratama</div>
               </div>
             </div>
             <div className="btn-profile">

@@ -1,7 +1,4 @@
-import "./App.css";
 import AccountPage from "./account/Accountpage";
-import "./App.css";
-import Navbar from "./components/navbar/Navbar";
 import CommentPage from "./comment/CommentPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
@@ -9,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import Footer from "./components/footer/Footer";
 import Router from "./routes/Router";
+import "./App.css";
 
 function App() {
   return (

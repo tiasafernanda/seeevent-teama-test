@@ -15,6 +15,12 @@
   flex-direction: column;
 }
 
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .picture-account {
   border-radius: 50%;
   height: 130px;
@@ -33,7 +39,7 @@
   display: flex;
   align-items: center;
   border: 1px solid;
-  width: 115px;
+  width: 130px;
 }
 .signout-btn {
   color: #214457;
@@ -42,7 +48,7 @@
   display: flex;
   align-items: center;
   border: 1px solid #214457;
-  width: 115px;
+  width: 130px;
 }
 
 .signout {

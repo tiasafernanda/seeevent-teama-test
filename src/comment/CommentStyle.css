@@ -67,10 +67,8 @@
 
 .updated-text {
   margin: 0;
-}
-
-h5 {
-  margin: 0;
+  font-weight: bold;
+  font-size: small;
 }
 
 .btn-profile {

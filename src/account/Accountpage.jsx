@@ -12,7 +12,7 @@ const AccountPage = () => {
         <div className="account-container">
           <div className="profile">
             <img src={header} alt="profile picture" className="picture-account" />
-            <div>
+            <div className="profile-container">
               <h4>This is Profile</h4>
               <p>ini alamat email</p>
             </div>
