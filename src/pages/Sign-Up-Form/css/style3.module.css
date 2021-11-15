@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,900;1,700;1,800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1522px;
+  height: 1121px;
+  /* background: chocolate; */
+}
+
+.hero {
+  position: absolute;
+  width: 800px;
+  height: 500px;
+  margin: 20px;
+  /* background: coral; */
+}
+
+.title h3 {
+  position: absolute;
+  top: 75px;
+  left: 340px;
+  font-size: 30px;
+  font-style: inherit;
+  color: #373737;
+}
+
+.form {
+  position: relative;
+  padding: 1em;
+  margin: 2rem auto 0 auto;
+  height: 64px;
+  width: 600px;
+}
+.name input {
+  position: absolute;
+  top: 32%;
+  left: 17%;
+  opacity: 0.5;
+  border: 1px solid #999999;
+  background: #fff;
+  align-items: center;
+  border-radius: 6px 6px 6px 6px;
+  height: 45px;
+  padding: 10px;
+}
+
+.last input {
+  position: absolute;
+  border: 1px solid #999999;
+  border-radius: 6px 6px 6px 6px;
+  left: 17%;
+  top: 47%;
+  background: #fff;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 28px;
+  opacity: 0.5;
+  height: 45px;
+  padding: 10px;
+}
+
+.email input {
+  position: absolute;
+  border: 1px solid #999999;
+  border-radius: 6px 6px 6px 6px;
+  left: 17%;
+  top: 62%;
+  background: #fff;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 28px;
+  opacity: 0.5;
+  height: 45px;
+  padding: 10px;
+}
+
+.password input {
+  position: absolute;
+  border: 1px solid #999999;
+  border-radius: 6px 6px 6px 6px;
+  left: 17%;
+  top: 76%;
+  background: #fff;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 28px;
+  opacity: 0.5;
+  height: 45px;
+  padding: 10px;
+}
+
+.confirm input {
+  position: absolute;
+  border: 1px solid #999999;
+  border-radius: 6px 6px 6px 6px;
+  left: 17%;
+  top: 90%;
+  background: #fff;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 28px;
+  opacity: 0.5;
+  height: 45px;
+  padding: 10px;
+}
+
+.signin button {
+  position: absolute;
+  cursor: pointer;
+  width: 63.5%;
+  height: 45px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  background-color: #214457;
+  top: 105%;
+  left: 17%;
+  border-radius: 6px;
+  border: none;
+}
+
+.issue {
+  position: absolute;
+  text-decoration: none;
+  font-weight: 50%;
+  color: #3e89ae;
+  top: 115%;
+  left: 36%;
+  font-style: bold;
+  line-height: 25px;
+}
