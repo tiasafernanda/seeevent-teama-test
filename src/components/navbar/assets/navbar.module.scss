@@ -5,6 +5,7 @@
   max-width: inherit;
   font-family: 'Noto Sans';
   color: white;
+  border-bottom: 0;
 
   header {
     padding: 4rem;
@@ -21,5 +22,99 @@
 
   a:hover {
     color: #f2d555;
+  }
+
+  .loginNav {
+    .profile {
+      display: flex;
+      justify-content: space-evenly;
+
+      a {
+        color: white;
+        position: relative;
+        top: 8px;
+      }
+    }
+
+    img {
+      width: 20%;
+      border-radius: 50%;
+    }
+
+    span {
+      position: absolute;
+      right: 213px;
+      top: 6px;
+      color: #787885;
+    }
+
+    .searchBar {
+      width: 15rem;
+      border-radius: 40px;
+      background-color: white;
+      padding: 0.5rem 2rem;
+      position: absolute;
+      left: 316px;
+      top: 18px;
+      input {
+        border: 0;
+        outline: none;
+      }
+    }
+  }
+}
+
+.navHome {
+  position: relative;
+  z-index: 1;
+  padding-left: 5rem;
+  padding-right: 5rem;
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  a:hover {
+    color: #f2d555;
+  }
+
+  .loginNav {
+    .profile {
+      display: flex;
+      justify-content: space-evenly;
+
+      a {
+        color: white;
+        position: relative;
+        top: 8px;
+      }
+    }
+
+    img {
+      width: 20%;
+      border-radius: 50%;
+    }
+
+    span {
+      position: absolute;
+      right: 213px;
+      top: 6px;
+      color: #787885;
+    }
+
+    .searchBar {
+      width: 15rem;
+      border-radius: 40px;
+      background-color: white;
+      padding: 0.5rem 2rem;
+      position: absolute;
+      left: 316px;
+      top: 18px;
+      input {
+        border: 0;
+        outline: none;
+      }
+    }
   }
 }

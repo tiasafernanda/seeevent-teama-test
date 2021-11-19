@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,900;1,700;1,800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,900;1,700;1,800&display=swap');
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Noto Sans';
 }
 
 .container {
@@ -11,11 +11,11 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
-
-  position: relative;
+  position: absolute;
   width: 1440px;
   height: 2000px;
   background: #ffffff;
+  top: 0;
 }
 
 .body {
@@ -27,6 +27,7 @@
   background-position: center;
   display: flex;
   align-items: center;
+  position: initial;
 }
 
 .body p {
@@ -36,7 +37,6 @@
   left: 6%;
   top: 0px;
 
-  font-family: "Poppins";
   font-style: normal;
   font-weight: bold;
   font-size: 56px;
@@ -45,7 +45,7 @@
   letter-spacing: 5px;
 }
 
-span {
+.body span {
   color: #f2d555;
 }
 
@@ -74,7 +74,7 @@ span {
   cursor: pointer;
 }
 
-input {
+.Search input {
   position: absolute;
   left: 8%;
   top: 25%;
@@ -168,7 +168,6 @@ input {
 
 .top li {
   display: flex;
-  font-family: "Poppins";
   font-style: normal;
   list-style: none;
 }
@@ -182,7 +181,6 @@ input {
 }
 
 .top h2 {
-  font-family: "Poppins";
   font-size: normal;
   font-weight: bold;
   font-size: 40px;
@@ -199,7 +197,6 @@ input {
 
 .middle li {
   display: flex;
-  font-family: "Poppins";
   font-size: 16px;
   color: #3e89ae;
   font-weight: bold;
@@ -208,7 +205,6 @@ input {
 }
 
 .middle h2 {
-  font-family: "Poppins";
   font-size: normal;
   font-weight: bold;
   font-size: 40px;

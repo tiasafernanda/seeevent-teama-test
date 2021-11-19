@@ -4,8 +4,17 @@ import event1 from './assets/event1.jpg';
 import event3 from './assets/event3.jpg';
 import event4 from './assets/event4.jpg';
 import event5 from './assets/mini-project.jpg';
+import { useState } from 'react';
+import axios from 'axios';
 
 export default function SearchEvent() {
+  const [listEvent, setListEvent] = useState([]);
+  console.log(listEvent);
+  const EventSearch = (keyword) => {
+    axios
+      .get(`http://see-event.herokuapp.com/search?${keyword}`)
+      .then((res) => setListEvent(res.data));
+  };
   return (
     <div className='searchevent'>
       <h3>Showing 68 Result for "How to"</h3>
@@ -152,7 +161,7 @@ export default function SearchEvent() {
       <nav aria-label='Page navigation '>
         <ul className='pagination justify-content-center'>
           <li className='page-item disabled'>
-            <a className='page-link'>Previous</a>
+            <a className='page-link'>&lt;</a>
           </li>
           <li className='page-item'>
             <a className='page-link' href='#'>
@@ -191,7 +200,7 @@ export default function SearchEvent() {
           </li>
           <li className='page-item'>
             <a className='page-link' href='#'>
-              Next
+              &gt;
             </a>
           </li>
         </ul>

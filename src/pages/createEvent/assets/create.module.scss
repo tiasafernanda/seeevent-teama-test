@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+.createEvent {
+  font-family: 'Noto Sans';
+  display: flex;
+  justify-content: center;
+  margin-top: 10rem;
+
+  img {
+    width: 28.5rem;
+    height: 20rem;
+  }
+
+  .uploadButton {
+    input {
+      display: flex;
+    }
+  }
+}
