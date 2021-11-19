@@ -1,5 +1,5 @@
 import AccountPage from "./account/Accountpage";
-import CommentPage from "./comment/CommentPage";
+import DetailPage from "./comment/DetailPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -16,7 +16,7 @@ function App() {
         <Router />
         <Routes>
           <Route path="/account-page" element={<AccountPage />} />
-          <Route path="/comment-page" element={<CommentPage />} />
+          <Route path="/detail-page/:id" element={<DetailPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
