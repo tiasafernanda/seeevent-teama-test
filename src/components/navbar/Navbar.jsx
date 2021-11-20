@@ -8,6 +8,10 @@ import { FiSearch } from 'react-icons/fi';
 import axios from 'axios';
 
 export default function Navbar() {
+  const logout = () => {
+    localStorage.removeItem('fakeToken'); // remove token to logout
+    window.location.href = '/';
+  };
   const [listEvent, setListEvent] = useState([]);
   console.log(listEvent);
   const EventSearch = (keyword) => {
@@ -43,7 +47,16 @@ export default function Navbar() {
             </div>
             <div className={styles.profile}>
               <img src={Avatar} alt='' />
-              <Link to='/account-page'>My Account</Link>
+              {/* <Link to='/account-page'>My Account</Link> */}
+              <div className={styles.dropdown}>
+                <button className={styles.dropbtn}>Pratur Anahata Pratama</button>
+                <div className={styles.dropdownContent}>
+                  <Link to='/account-page'>My Account</Link>
+                  <a href='#' onClick={logout}>
+                    Logout
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         ) : (
