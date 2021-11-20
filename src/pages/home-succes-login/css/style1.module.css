@@ -28,16 +28,16 @@
   position: relative;
   width: 496px;
   height: 247px;
-  left: 6%;
+  left: 9%;
   top: 0px;
 
   font-family: 'Poppins';
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 56px;
   line-height: 62px;
   color: #ffffff;
-  letter-spacing: 5px;
+  letter-spacing: 1px;
 }
 
 .body span {
@@ -69,7 +69,11 @@
   cursor: pointer;
 }
 
+<<<<<<< HEAD:src/pages/home-succes-login/css/style1.module.css
 .search input {
+=======
+.cok {
+>>>>>>> 62b69ad673f477cb780f0579106e6c25a07be0aa:src/pages/home-succes-login/css/style1.css
   position: absolute;
   left: 8%;
   top: 25%;
@@ -89,7 +93,7 @@
   left: 25px;
 }
 
-.card-grid {
+.cardgrid {
   height: 20%;
   width: 20%;
   display: flex;

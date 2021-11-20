@@ -27,9 +27,9 @@ function SuccessLogin() {
           <div className={styles.icon}>
             <BsSearch />
           </div>
-          <input type='text' placeholder='Search Event' />
+          <input className={styles.cok} type="text" placeholder="Search Event" />
         </div>
-        <div className='top'>
+        <div className={styles.top}>
           <h2>Attend an event starting soon</h2>
           <ul>
             <li>
@@ -37,12 +37,12 @@ function SuccessLogin() {
             </li>
           </ul>
         </div>
-        <div className={styles.cardGrid}>
+        <div className={styles.cardgrid}>
           {cardDatas.map((data) => (
             <>
               <div className={styles.card}>
-                <div key={data.id} className='image'>
-                  <img src={data.img} alt='' />
+                <div key={data.id} className={styles.image}>
+                  <img src={data.img} alt="" />
                 </div>
                 <div className={styles.content}>
                   <div className={styles.category}>
@@ -66,12 +66,12 @@ function SuccessLogin() {
             </li>
           </ul>
         </div>
-        <div className={styles.cardGrid}>
+        <div className={styles.cardgrid}>
           {cardDatas.map((data) => (
             <>
               <div className={styles.card}>
-                <div key={data.id} className='image'>
-                  <img src={data.img} alt='' />
+                <div key={data.id} className={styles.image}>
+                  <img src={data.img} alt="" />
                 </div>
                 <div className={styles.content}>
                   <div className={styles.category}>

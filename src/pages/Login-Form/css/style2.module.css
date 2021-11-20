@@ -1,5 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,900;1,700;1,800&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+}
 .container {
   display: flex;
   justify-content: center;
@@ -17,10 +22,16 @@
   /* background: chocolate; */
 }
 
-.formLogin {
-  position: relative;
+.title {
+  text-align: center;
+  font-family: "Noto Sans", sans-serif;
+  font-style: Bold;
+  font-size: 25px;
+  line-height: 44px;
+  /* letter-spacing: 44px; */
 }
 
+<<<<<<< HEAD
 .email input {
   border: 1px solid #999999;
   opacity: 0.9;
@@ -50,50 +61,87 @@
   top: 235px;
   left: 20%;
   border-radius: 4px 4px 4px 4px;
-  height: 45px;
-}
-
-/* .signin {
-  top: 200px;
-  left: 200px;
-} */
-
-.signin {
-  margin-top: 4px;
-}
-
-.signin button {
-  position: absolute;
-  cursor: pointer;
-  width: 63.5%;
-  height: 56px;
+=======
+.form1 a {
   text-decoration: none;
-  color: #fff;
-  font-size: 16px;
-  background-color: #214457;
-  top: 310px;
-  left: 20%;
-  border-radius: 6px;
-  border: none;
-}
-
-.forgot {
-  position: absolute;
-  text-decoration: none;
-  font-style: 1000px;
   color: #3e89ae;
-  top: 370px;
-  left: 44%;
-  font-style: bold;
-  line-height: 25px;
+  text-align: center;
+  padding-top: 1rem;
+  font-size: 14px;
+  line-height: 25.2px;
+  font-weight: bold;
 }
 
-.title h3 {
+.form1 {
+  display: grid;
+  padding: 1em;
+  /* background-color: aqua; */
+  /* border: 1px solid #c1c1c1; */
+  margin: 2rem auto 0 auto;
+  max-width: 600px;
+  /* padding-bottom: 1rem; */
+}
+.form1 .hover {
+  margin-left: 5rem;
+>>>>>>> 62b69ad673f477cb780f0579106e6c25a07be0aa
+  height: 45px;
+  width: 400px;
+  border-radius: 6px 6px;
+  background: #fff;
+  border: 1px solid #9c9c9c;
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+.form1 .login {
+  margin-left: 5rem;
+  background: #214457;
+  padding: 0.7em;
+  width: 70%;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px 10px 10px 10px;
+}
+
+#Confirm-Password input {
+  border: 1px solid #fff;
+}
+
+.hover {
+  padding: 0.7em;
+  margin-bottom: 0.5rem;
+}
+.hover:focus {
+  outline: 1px solid #000000;
+}
+
+.warning p {
+  color: red;
   position: absolute;
-  color: #373737;
-  top: 100px;
-  left: 30%;
-  /* font-style: bold; */
-  font-size: 40px;
-  line-height: 4px;
+  left: 15%;
+  top: 70%;
+  font-size: 10px;
+}
+
+.errorhover {
+  margin-left: 5rem;
+  height: 45px;
+  width: 400px;
+  border-radius: 6px 6px;
+  background: #fff;
+  border: 1px solid red;
+  opacity: 0.7;
+  padding: 0.7em;
+  margin-bottom: 1.5rem;
+}
+
+.warning {
+  position: relative;
+}
+.Eye {
+  all: unset;
+  position: absolute;
+  top: 20%;
+  left: 79%;
+  cursor: pointer;
 }
