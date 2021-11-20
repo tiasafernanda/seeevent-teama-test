@@ -7,7 +7,7 @@ production:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-    - dpl --provider=heroku --app${default} --api-key=${HEROKU_API}
+    - dpl --provider=heroku --app${default} --api-key=${REPO_NAME} --api-key=${HEROKU_API}
   only:
     - default
   tags:
