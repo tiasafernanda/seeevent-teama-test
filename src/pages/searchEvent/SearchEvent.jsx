@@ -1,20 +1,25 @@
-import React from 'react';
+import { useEffect } from 'react';
 import './assets/searchevent.scss';
-import event1 from './assets/event1.jpg';
-import event3 from './assets/event3.jpg';
-import event4 from './assets/event4.jpg';
-import event5 from './assets/mini-project.jpg';
-import { useState } from 'react';
-import axios from 'axios';
+// import event1 from './assets/event1.jpg';
+// import event3 from './assets/event3.jpg';
+// import event4 from './assets/event4.jpg';
+// import event5 from './assets/mini-project.jpg';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+// import { getEvents } from '../../store/actions/event';
+import { getEventList } from '../../store/actions/event';
 
 export default function SearchEvent() {
-  const [listEvent, setListEvent] = useState([]);
-  console.log(listEvent);
-  const EventSearch = (keyword) => {
-    axios
-      .get(`http://see-event.herokuapp.com/search?${keyword}`)
-      .then((res) => setListEvent(res.data));
-  };
+  const relative = dayjs.extend(relativeTime);
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getEventList(id));
+  }, [dispatch, id]);
+  const { details, loading } = useSelector((state) => state.event.detailEvent);
+  console.log(details);
   return (
     <div className='searchevent'>
       <h3>Showing 68 Result for "How to"</h3>
@@ -49,21 +54,30 @@ export default function SearchEvent() {
         </select>
       </div>
       <div className='search-result'>
-        <div className='row row-cols-1 row-cols-md-4 g-4'>
-          <div className='col'>
-            <a href='#'>
-              <div className='card h-100'>
-                <img src={event5} className='card-img-top img-fluid' alt='...' />
-                <div className='card-body'>
-                  <h5 className='card-title'>Design</h5>
-                  <p className='date card-text'>SUN, OCT 24 @ 1:15 AM ICT</p>
-                  <p className='title card-text'>Hitting Reset: How to Land A Job in UX Design</p>
-                  <p className='host card-text'>By Ernest</p>
+        {loading ? (
+          'loading...'
+        ) : (
+          <div className='row row-cols-1 row-cols-md-4 g-4'>
+            <div className='col'>
+              <a href='#'>
+                <div className='card h-100'>
+                  <img
+                    src={details.event_photo}
+                    alt={details.event_title}
+                    className='card-img-top img-fluid'
+                  />
+                  <div className='card-body'>
+                    <h5 className='card-title'>{details.category_name}</h5>
+                    <p className='date card-text'>
+                      {relative(dayjs(details.date_and_time).format('YYYY/MM/DD')).fromNow()}
+                    </p>
+                    <p className='title card-text'>{details.event_title}</p>
+                    <p className='host card-text'>By Ernest</p>
+                  </div>
                 </div>
-              </div>
-            </a>
-          </div>
-          <div className='col'>
+              </a>
+            </div>
+            {/* <div className='col'>
             <a href='#'>
               <div className='card h-100'>
                 <img src={event4} className='card-img-top img-fluid' alt='...' />
@@ -155,8 +169,9 @@ export default function SearchEvent() {
                 </div>
               </div>
             </a>
+          </div> */}
           </div>
-        </div>
+        )}
       </div>
       <nav aria-label='Page navigation '>
         <ul className='pagination justify-content-center'>

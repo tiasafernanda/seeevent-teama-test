@@ -16,7 +16,7 @@ export default function Navbar() {
   console.log(listEvent);
   const EventSearch = (keyword) => {
     axios
-      .get(`http://see-event.herokuapp.com/search?${keyword}`)
+      .get(`http://see-event.herokuapp.com/home?search=${keyword}`)
       .then((res) => setListEvent(res.data));
   };
   const fakeToken = localStorage.getItem('fakeToken');
