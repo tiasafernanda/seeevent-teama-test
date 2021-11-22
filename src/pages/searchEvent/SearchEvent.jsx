@@ -1,25 +1,29 @@
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './assets/searchevent.scss';
-// import event1 from './assets/event1.jpg';
-// import event3 from './assets/event3.jpg';
-// import event4 from './assets/event4.jpg';
-// import event5 from './assets/mini-project.jpg';
+import { Pagination } from 'react-bootstrap';
+import { getEventList } from '../../store/actions/event';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+// import { useParams } from 'react-router-dom';
+// import { useSelector, useDispatch } from 'react-redux';
 // import { getEvents } from '../../store/actions/event';
-import { getEventList } from '../../store/actions/event';
+// import { getEventList } from '../../store/actions/event';
 
 export default function SearchEvent() {
-  const relative = dayjs.extend(relativeTime);
-  const { id } = useParams();
+  // const loading = false;
+  // const dispatch = useDispatch();
+  // const events = useSelector((state) => state.events);
+  // console.log('events list', events);
+  // useEffect(() => {
+  //   dispatch(getEventList());
+  // }, [dispatch]);
   const dispatch = useDispatch();
+  const { loading, events } = useSelector((state) => state.data);
+  console.log('events list', events);
   useEffect(() => {
-    dispatch(getEventList(id));
-  }, [dispatch, id]);
-  const { details, loading } = useSelector((state) => state.event.detailEvent);
-  console.log(details);
+    dispatch(getEventList());
+  }, [dispatch]);
   return (
     <div className='searchevent'>
       <h3>Showing 68 Result for "How to"</h3>
@@ -54,172 +58,49 @@ export default function SearchEvent() {
         </select>
       </div>
       <div className='search-result'>
-        {loading ? (
-          'loading...'
-        ) : (
-          <div className='row row-cols-1 row-cols-md-4 g-4'>
-            <div className='col'>
-              <a href='#'>
-                <div className='card h-100'>
-                  <img
-                    src={details.event_photo}
-                    alt={details.event_title}
-                    className='card-img-top img-fluid'
-                  />
-                  <div className='card-body'>
-                    <h5 className='card-title'>{details.category_name}</h5>
-                    <p className='date card-text'>
-                      {relative(dayjs(details.date_and_time).format('YYYY/MM/DD')).fromNow()}
-                    </p>
-                    <p className='title card-text'>{details.event_title}</p>
-                    <p className='host card-text'>By Ernest</p>
+        <div className='row row-cols-1 row-cols-md-4 g-4'>
+          {loading
+            ? 'Loading.....'
+            : events.map((item, index) => {
+                return (
+                  <div className='col'>
+                    <a href='#'>
+                      <div className='card h-100' key={index}>
+                        <img
+                          src={item.event_photo}
+                          alt='{item.event_title}'
+                          className='card-img-top img-fluid'
+                        />
+                        <div className='card-body'>
+                          <h5 className='card-title'>{item.category.name}</h5>
+                          <p className='date card-text'>{item.date_and_time}</p>
+                          <p className='title card-text'>{item.event_title}</p>
+                          <p className='host card-text'>{item.user.first_name}</p>
+                        </div>
+                      </div>
+                    </a>
                   </div>
-                </div>
-              </a>
-            </div>
-            {/* <div className='col'>
-            <a href='#'>
-              <div className='card h-100'>
-                <img src={event4} className='card-img-top img-fluid' alt='...' />
-                <div className='card-body'>
-                  <h5 className='card-title'>Design</h5>
-                  <p className='date card-text'>SUN, OCT 24 @ 1:15 AM ICT</p>
-                  <p className='title card-text'>How to create a design system</p>
-                  <p className='host card-text'>By Agung Dwi Putra</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div className='col'>
-            <a href='#'>
-              <div className='card h-100'>
-                <img src={event1} className='card-img-top img-fluid' alt='...' />
-                <div className='card-body'>
-                  <h5 className='card-title'>Business</h5>
-                  <p className='date card-text'>SUN, OCT 24 @ 1:15 AM ICT</p>
-                  <p className='title card-text'>
-                    How to make your business growth 10 times within 1 year
-                  </p>
-                  <p className='host card-text'>By Adit nento</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div className='col'>
-            <a href='#'>
-              <div className='card h-100'>
-                <img src={event4} className='card-img-top img-fluid' alt='...' />
-                <div className='card-body'>
-                  <h5 className='card-title'>Design</h5>
-                  <p className='date card-text'>SUN, OCT 24 @ 1:15 AM ICT</p>
-                  <p className='title card-text'>How to create a design system</p>
-                  <p className='host card-text'>By Agung Dwi Putra</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div className='col'>
-            <a href='#'>
-              <div className='card h-100'>
-                <img src={event3} className='card-img-top img-fluid' alt='...' />
-                <div className='card-body'>
-                  <h5 className='card-title'>Marketing</h5>
-                  <p className='date card-text'>SUN, OCT 24 @ 1:15 AM ICT</p>
-                  <p className='title card-text'>Google Ads 101 with the best marketing agency</p>
-                  <p className='host card-text'>By Budi Setiawan</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div className='col'>
-            <a href='#'>
-              <div className='card h-100'>
-                <img src={event5} className='card-img-top img-fluid' alt='...' />
-                <div className='card-body'>
-                  <h5 className='card-title'>Design</h5>
-                  <p className='date card-text'>SUN, OCT 24 @ 1:15 AM ICT</p>
-                  <p className='title card-text'>Hitting Reset: How to Land A Job in UX Design</p>
-                  <p className='host card-text'>By Ernest</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div className='col'>
-            <a href='#'>
-              <div className='card h-100'>
-                <img src={event4} className='card-img-top img-fluid' alt='...' />
-                <div className='card-body'>
-                  <h5 className='card-title'>Design</h5>
-                  <p className='date card-text'>SUN, OCT 24 @ 1:15 AM ICT</p>
-                  <p className='title card-text'>How to create a design system</p>
-                  <p className='host card-text'>By Agung Dwi Putra</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div className='col'>
-            <a href='#'>
-              <div className='card h-100'>
-                <img src={event3} className='card-img-top img-fluid' alt='...' />
-                <div className='card-body'>
-                  <h5 className='card-title'>Marketing</h5>
-                  <p className='date card-text'>SUN, OCT 24 @ 1:15 AM ICT</p>
-                  <p className='title card-text'>Google Ads 101 with the best marketing agency</p>
-                  <p className='host card-text'>By Budi Setiawan</p>
-                </div>
-              </div>
-            </a>
-          </div> */}
-          </div>
-        )}
+                );
+              })}
+        </div>
       </div>
-      <nav aria-label='Page navigation '>
-        <ul className='pagination justify-content-center'>
-          <li className='page-item disabled'>
-            <a className='page-link'>&lt;</a>
-          </li>
-          <li className='page-item'>
-            <a className='page-link' href='#'>
-              1
-            </a>
-          </li>
-          <li className='page-item'>
-            <a className='page-link' href='#'>
-              2
-            </a>
-          </li>
-          <li className='page-item'>
-            <a className='page-link' href='#'>
-              3
-            </a>
-          </li>
-          <li className='page-item'>
-            <a className='page-link' href='#'>
-              4
-            </a>
-          </li>
-          <li className='page-item'>
-            <a className='page-link' href='#'>
-              5
-            </a>
-          </li>
-          <li className='page-item'>
-            <a className='page-link' href='#'>
-              ...
-            </a>
-          </li>
-          <li className='page-item'>
-            <a className='page-link' href='#'>
-              10
-            </a>
-          </li>
-          <li className='page-item'>
-            <a className='page-link' href='#'>
-              &gt;
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <Pagination className='justify-content-center'>
+        <Pagination.First />
+        <Pagination.Prev />
+        <Pagination.Item>{1}</Pagination.Item>
+        <Pagination.Ellipsis />
+
+        <Pagination.Item>{10}</Pagination.Item>
+        <Pagination.Item>{11}</Pagination.Item>
+        <Pagination.Item>{12}</Pagination.Item>
+        <Pagination.Item>{13}</Pagination.Item>
+        <Pagination.Item>{14}</Pagination.Item>
+
+        <Pagination.Ellipsis />
+        <Pagination.Item>{20}</Pagination.Item>
+        <Pagination.Next />
+        <Pagination.Last />
+      </Pagination>
     </div>
   );
 }

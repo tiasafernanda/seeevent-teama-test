@@ -1,15 +1,21 @@
 import React from 'react';
 import navbarlogo from './assets/navbar-logo.png';
 import styles from './assets/navbar.module.scss';
-import { useLocation, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Avatar from '../../account/Assets/header.png';
 import { FiSearch } from 'react-icons/fi';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { getEventSearch } from '../../store/actions/event';
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  const [search, setSearch] = useState();
+  console.log(setSearch);
+  const dispatch = useDispatch();
   const logout = () => {
-    localStorage.removeItem('fakeToken'); // remove token to logout
+    localStorage.removeItem('token');
     window.location.href = '/';
   };
   const [listEvent, setListEvent] = useState([]);
@@ -17,9 +23,15 @@ export default function Navbar() {
   const EventSearch = (keyword) => {
     axios
       .get(`http://see-event.herokuapp.com/home?search=${keyword}`)
-      .then((res) => setListEvent(res.data));
+      .then((res) => setListEvent(res.data.data));
   };
-  const fakeToken = localStorage.getItem('fakeToken');
+  // console.log(EventSearch);
+  console.log(listEvent);
+  useEffect(() => {
+    dispatch(getEventSearch(search));
+  }, [search]);
+  console.log(search);
+  const authorization = localStorage.getItem('token');
   const location = useLocation();
   console.log(location);
   const Home = window.location.pathname === '/';
@@ -33,7 +45,7 @@ export default function Navbar() {
           <img src={navbarlogo} height='40' alt='...' />
         </a>
 
-        {fakeToken ? (
+        {authorization ? (
           <div className={styles.loginNav}>
             <div className={styles.searchBar}>
               <span className={styles.icon}>
@@ -42,7 +54,15 @@ export default function Navbar() {
               <input
                 type='text'
                 placeholder='Search Event'
-                onChange={(e) => EventSearch(e.target.value)}
+                onChange={(e) => e.target.value}
+                onKeyPress={(e) => {
+                  if (e.key === 'Enter') {
+                    EventSearch(e.target.value);
+                    // EventSearch(e.target.value);
+                    // navigate('/search', { replace: true });
+                  }
+                }}
+                value={search}
               />
             </div>
             <div className={styles.profile}>
