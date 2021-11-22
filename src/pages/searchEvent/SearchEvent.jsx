@@ -5,25 +5,20 @@ import { Pagination } from 'react-bootstrap';
 import { getEventList } from '../../store/actions/event';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-// import { useParams } from 'react-router-dom';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { getEvents } from '../../store/actions/event';
-// import { getEventList } from '../../store/actions/event';
+import { useParams } from 'react-router-dom';
+import { getEventSearch } from '../../store/actions/event';
 
 export default function SearchEvent() {
-  // const loading = false;
-  // const dispatch = useDispatch();
-  // const events = useSelector((state) => state.events);
-  // console.log('events list', events);
-  // useEffect(() => {
-  //   dispatch(getEventList());
-  // }, [dispatch]);
+  const { keyword } = useParams();
+  console.log(keyword);
+  const searchResult = useSelector((state) => state);
+  console.log('searchResult', searchResult.searchEvent);
   const dispatch = useDispatch();
-  const { loading, events } = useSelector((state) => state.data);
-  console.log('events list', events);
   useEffect(() => {
-    dispatch(getEventList());
-  }, [dispatch]);
+    if (keyword) {
+      dispatch(getEventSearch(keyword));
+    }
+  }, [keyword]);
   return (
     <div className='searchevent'>
       <h3>Showing 68 Result for "How to"</h3>
@@ -59,9 +54,9 @@ export default function SearchEvent() {
       </div>
       <div className='search-result'>
         <div className='row row-cols-1 row-cols-md-4 g-4'>
-          {loading
+          {searchResult?.searchEvent?.loading
             ? 'Loading.....'
-            : events.map((item, index) => {
+            : searchResult?.searchEvent?.search?.map((item, index) => {
                 return (
                   <div className='col'>
                     <a href='#'>

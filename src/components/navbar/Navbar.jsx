@@ -27,9 +27,9 @@ export default function Navbar() {
   };
   // console.log(EventSearch);
   console.log(listEvent);
-  useEffect(() => {
-    dispatch(getEventSearch(search));
-  }, [search]);
+  // useEffect(() => {
+  //   dispatch(getEventSearch(search));
+  // }, [search]);
   console.log(search);
   const authorization = localStorage.getItem('token');
   const location = useLocation();
@@ -54,12 +54,12 @@ export default function Navbar() {
               <input
                 type='text'
                 placeholder='Search Event'
-                onChange={(e) => e.target.value}
+                onChange={(e) => setSearch(e.target.value)}
                 onKeyPress={(e) => {
                   if (e.key === 'Enter') {
                     EventSearch(e.target.value);
                     // EventSearch(e.target.value);
-                    // navigate('/search', { replace: true });
+                    navigate(`/search/${search}`, { replace: true });
                   }
                 }}
                 value={search}

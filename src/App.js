@@ -1,3 +1,6 @@
+// import AccountPage from "./account/Accountpage";
+import DetailPage from './comment/DetailPage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
@@ -10,9 +13,12 @@ function App() {
     <div className='App'>
       <Navbar />
       <Router />
+      <Routes>
+        {/* <Route path="/account-page" element={<AccountPage />} /> */}
+        {/* <Route path="/detail-page/:id" element={<DetailPage />} /> */}
+      </Routes>
       <Footer />
     </div>
   );
 }
-
 export default App;
