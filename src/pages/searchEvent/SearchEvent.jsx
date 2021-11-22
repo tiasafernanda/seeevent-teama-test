@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './assets/searchevent.scss';
-import { Pagination } from 'react-bootstrap';
-import { getEventList } from '../../store/actions/event';
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
+// import { Pagination } from 'react-bootstrap';
+// import { getEventList } from '../../store/actions/event';
+// import dayjs from 'dayjs';
+// import relativeTime from 'dayjs/plugin/relativeTime';
 import { useParams } from 'react-router-dom';
 import { getEventSearch } from '../../store/actions/event';
 
@@ -79,7 +79,7 @@ export default function SearchEvent() {
               })}
         </div>
       </div>
-      <Pagination className='justify-content-center'>
+      {/* <Pagination className='justify-content-center'>
         <Pagination.First />
         <Pagination.Prev />
         <Pagination.Item>{1}</Pagination.Item>
@@ -95,7 +95,7 @@ export default function SearchEvent() {
         <Pagination.Item>{20}</Pagination.Item>
         <Pagination.Next />
         <Pagination.Last />
-      </Pagination>
+      </Pagination> */}
     </div>
   );
 }
