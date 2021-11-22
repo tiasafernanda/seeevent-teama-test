@@ -9,12 +9,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1522px;
-  height: 1121px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .hero {
-  position: absolute;
+  position: relative;
   align-items: center;
   width: 800px;
   height: 500px;

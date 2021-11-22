@@ -5,10 +5,14 @@ import facebook from './assets/Facebook.png';
 import instagram from './assets/Instagram.png';
 import twitter from './assets/Twitter.png';
 import youtube from './assets/Youtube.png';
+import { useLocation, Link } from 'react-router-dom';
 
 export default function Footer() {
+  const location = useLocation();
+  console.log(location);
+  const Home = window.location.pathname === '/';
   return (
-    <div className={styles.container}>
+    <div className={Home ? styles.footerHome : styles.container}>
       <footer className='row row-cols-6 py-5 pe-0 me-0'>
         <div className='col-4 ps-5'>
           <a href='/' className='d-flex align-items-center mb-3 link-dark'>

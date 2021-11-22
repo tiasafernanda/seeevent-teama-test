@@ -29,7 +29,7 @@ const AccountPage = () => {
             <img src={edit3} className="edit" />
             <div className="edit">Edit Profile</div>
           </button>
-          <button className="signout-btn">
+          <button className="signout-btn" onClick={logout}>
             <img src={Left} />
             <div className="signout">Sign out</div>
           </button>

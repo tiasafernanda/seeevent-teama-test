@@ -1,9 +1,12 @@
-import React from "react";
-import cardDatas from "./data";
-import styles from "../home-succes-login/css/style1.module.css";
-import { BsSearch } from "react-icons/bs";
+import React from 'react';
+import cardDatas from './data';
+import styles from './css/style1.module.css';
+import { BsSearch } from 'react-icons/bs';
 
 function SuccessLogin() {
+  const authorizeUser = () => {
+    localStorage.setItem('auth', 'this is token');
+  };
   return (
     <div>
       <div className={styles.container}>
@@ -30,7 +33,7 @@ function SuccessLogin() {
           <h2>Attend an event starting soon</h2>
           <ul>
             <li>
-              <a href="#">More events</a>
+              <a href='#'>More events</a>
             </li>
           </ul>
         </div>
@@ -59,7 +62,7 @@ function SuccessLogin() {
           <h2>Design Events</h2>
           <ul>
             <li>
-              <a href="#">More events</a>
+              <a href='#'>More events</a>
             </li>
           </ul>
         </div>

@@ -1,4 +1,4 @@
-import AccountPage from "./account/Accountpage";
+// import AccountPage from "./account/Accountpage";
 import DetailPage from "./comment/DetailPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
@@ -23,5 +23,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
