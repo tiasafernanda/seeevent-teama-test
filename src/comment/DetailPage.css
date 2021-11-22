@@ -26,7 +26,13 @@
 .detail {
   text-align: left;
   width: 570px;
+  margin: 1.5rem 0;
 }
+
+.detail-title {
+  font-weight: bold;
+}
+
 .paragraph {
   text-align: left;
 }
@@ -38,6 +44,9 @@
   border-radius: 7px;
 }
 
+.author {
+  width: 213px;
+}
 .profile-author {
   display: flex;
   margin: 30px 0;
@@ -45,10 +54,17 @@
 }
 
 .picture-author {
+  background-color: #214457;
   border-radius: 50%;
   height: 50px;
-  margin-right: 20px;
+  margin: 0 13px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  width: 50px;
+  justify-content: center;
 }
+
 .created {
   font-size: 11px;
 }
@@ -86,16 +102,17 @@
   margin: auto;
   border: 1px solid #214457;
   width: 95px;
+  justify-content: space-evenly;
 }
 
 .save {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   color: #ffffff;
   background-color: #214457;
   align-items: center;
   border-radius: 8px;
-  width: 87px;
   margin: auto;
   border: 1px solid #214457;
   width: 95px;
@@ -156,6 +173,7 @@
   margin-bottom: 29px;
   font-size: large;
   border-color: #214457;
+  padding: 10px;
 }
 
 textarea:focus {
