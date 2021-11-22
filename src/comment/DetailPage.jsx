@@ -13,21 +13,21 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { formatProfileName } from "./../helper/FormatProfileName.js";
-import { getDetailEvent } from "../store/actions/eventAction";
+import { getEventDetail } from "../store/actions/event";
 
 const ReviewDetailPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const storeGlobal = useSelector((state) => state.event.detailEvent);
+  const storeGlobal = useSelector((state) => state.event);
   console.log(storeGlobal);
   console.log(id, "params");
   // console.log(dataEvent);
   useEffect(() => {
-    dispatch(getDetailEvent(id));
-  }, []);
+    dispatch(getEventDetail(id));
+  }, [dispatch]);
 
-  const first_name = storeGlobal && storeGlobal.data.data.user.first_name;
-  const last_name = storeGlobal && storeGlobal.data.data.user.last_name;
+  const first_name = storeGlobal && storeGlobal.data.user.first_name;
+  const last_name = storeGlobal && storeGlobal.data.user.last_name;
 
   const errorImage = true;
 

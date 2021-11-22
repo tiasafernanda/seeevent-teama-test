@@ -1,4 +1,4 @@
-import { put, takeEvery } from '@redux-saga/core/effects';
+import { put, takeEvery } from "@redux-saga/core/effects";
 import {
   GET_EVENTS_BEGIN,
   GET_EVENTS_SUCCESS,
@@ -12,10 +12,11 @@ import {
   GET_EVENT_SEARCH_BEGIN,
   GET_EVENT_SEARCH_FAIL,
   GET_EVENT_SEARCH_SUCCESS,
-} from '../actions/types';
-import axios from 'axios';
+} from "../actions/types";
+import axios from "axios";
 
-const baseUrl = 'http://see-event.herokuapp.com';
+const baseUrl = "http://see-event.herokuapp.com";
+const token = localStorage.getItem("token");
 function* getEvents() {
   try {
     const res = yield axios.get(baseUrl);
@@ -35,7 +36,11 @@ function* getEvents() {
 function* getEventDetail(actions) {
   const { id } = actions;
   try {
-    const res = yield axios.get(`${baseUrl}/event/${id}`);
+    const res = yield axios.get(`${baseUrl}/event/${id}`, {
+      headers: {
+        access_token: token,
+      },
+    });
     console.log(res);
     yield put({
       type: GET_EVENT_DETAIL_SUCCESS,
