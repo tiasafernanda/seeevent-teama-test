@@ -34,7 +34,17 @@ function HomeLogin() {
           </p>
         </div>
         <div className={styles.Search}>
-          <button>Search</button>
+          <button
+            onClick={(e) => {
+              if (e.key === 'Enter') {
+                EventSearch(e.target.value);
+                navigate(`/search/${search}`, { replace: true });
+              }
+            }}
+            value={search}
+          >
+            Search
+          </button>
           <div className={styles.icon}>
             <BsSearch />
           </div>
