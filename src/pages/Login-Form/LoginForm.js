@@ -1,18 +1,37 @@
-import React, { useState, useEffect } from "react";
-import Styles from "../Login-Form/css/style2.module.css";
-import { FiEyeOff, FiEye } from "react-icons/fi";
+import React, { useState, useEffect } from 'react';
+import Styles from '../Login-Form/css/style2.module.css';
+import { FiEyeOff, FiEye } from 'react-icons/fi';
+import { useDispatch } from 'react-redux';
+import { LoginAction } from '../../store/actions/auth';
 
 function LoginForm() {
-  const initialValues = { email: "", password: "" };
+  const initialValues = { email: '', password: '' };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
 
+  const dispatch = useDispatch();
+  const [inputLogin, setInputLogin] = useState({
+    email: '',
+    password: '',
+  });
+
+  // const changeInput = (e) => {
+  //   setInputLogin({
+  //     ...inputLogin,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
+
   const handleChange = (e) => {
     // console.log(e.target);
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
+    // const { name, value } = e.target;
+    // setFormValues({ ...formValues, [name]: value });
+    setInputLogin({
+      ...inputLogin,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = (e) => {
@@ -27,21 +46,26 @@ function LoginForm() {
     // }
     console.log(formErrors);
   }, [formErrors]);
+
+  const submitLogin = () => {
+    dispatch(LoginAction(inputLogin));
+  };
+
   const validate = (values) => {
     console.log(values);
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]{2,}$/i;
     if (!values.email) {
-      errors.email = "This field is required";
+      errors.email = 'This field is required';
     } else if (!regex.test(values.email)) {
-      errors.email = "Email is invalid";
+      errors.email = 'Email is invalid';
     }
     if (!values.password) {
-      errors.password = "This field is required";
+      errors.password = 'This field is required';
     } else if (values.password.length < 6) {
-      errors.password = "Password must be at least 6 characters";
+      errors.password = 'Password must be at least 6 characters';
     } else if (values.password.length > 15) {
-      errors.password = "Password cannot exceed more than 15 characters";
+      errors.password = 'Password cannot exceed more than 15 characters';
     }
 
     return errors;
@@ -56,18 +80,38 @@ function LoginForm() {
           </div>
           <form className={Styles.form1} onSubmit={handleSubmit}>
             <div className={Styles.warning}>
-              <input className={formErrors.email && isSubmit ? Styles.errorhover : Styles.hover} name="email" type="email" placeholder="Email" value={formValues.email} onChange={handleChange} />
+              <input
+                className={formErrors.email && isSubmit ? Styles.errorhover : Styles.hover}
+                name='email'
+                type='email'
+                placeholder='Email'
+                value={formValues.email}
+                onChange={(e) => handleChange(e)}
+              />
               <p>{formErrors.email}</p>
             </div>
             <div className={Styles.warning}>
-              <input className={formErrors.password && isSubmit ? Styles.errorhover : Styles.hover} name="password" type={passwordVisible ? "text" : "password"} placeholder="Password" value={formValues.password} onChange={handleChange} />
+              <input
+                className={formErrors.password && isSubmit ? Styles.errorhover : Styles.hover}
+                name='password'
+                type={passwordVisible ? 'text' : 'password'}
+                placeholder='Password'
+                value={formValues.password}
+                onChange={(e) => handleChange(e)}
+              />
               <p>{formErrors.password}</p>
-              <button type="button" className={Styles.Eye} onClick={() => setPasswordVisible(!passwordVisible)}>
+              <button
+                type='button'
+                className={Styles.Eye}
+                onClick={() => setPasswordVisible(!passwordVisible)}
+              >
                 {passwordVisible ? <FiEyeOff /> : <FiEye />}
               </button>
             </div>
-            <button className={Styles.login}>Sign In</button>
-            <a href="#"> Forgot Password?</a>
+            <button className={Styles.login} onClick={submitLogin}>
+              Sign In
+            </button>
+            <a href='#'> Forgot Password?</a>
           </form>
         </div>
       </div>

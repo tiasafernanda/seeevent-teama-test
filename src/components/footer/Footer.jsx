@@ -49,7 +49,7 @@ export default function Footer() {
           <p>© 2021 SeeEvent All rights reserved.</p>
         </div>
 
-        <div class='col-1'></div>
+        <div className='col-1'></div>
 
         <div className='col-2'>
           <h5>Links</h5>
