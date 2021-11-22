@@ -13,7 +13,8 @@ function* login(action) {
       {
         type: LOGIN_SUCCESS,
       },
-      localStorage.setItem('token', res.data.token) // setup token on local storage
+      localStorage.setItem('token', res.data.token),
+      (window.location.href = '/')
     );
   } catch (err) {
     console.log(err);

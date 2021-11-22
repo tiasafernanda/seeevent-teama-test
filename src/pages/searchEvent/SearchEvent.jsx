@@ -1,33 +1,28 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './assets/searchevent.scss';
-import { Pagination } from 'react-bootstrap';
-import { getEventList } from '../../store/actions/event';
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
-// import { useParams } from 'react-router-dom';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { getEvents } from '../../store/actions/event';
+// import { Pagination } from 'react-bootstrap';
 // import { getEventList } from '../../store/actions/event';
+// import dayjs from 'dayjs';
+// import relativeTime from 'dayjs/plugin/relativeTime';
+import { useParams } from 'react-router-dom';
+import { getEventSearch } from '../../store/actions/event';
 
 export default function SearchEvent() {
-  // const loading = false;
-  // const dispatch = useDispatch();
-  // const events = useSelector((state) => state.events);
-  // console.log('events list', events);
-  // useEffect(() => {
-  //   dispatch(getEventList());
-  // }, [dispatch]);
+  const { keyword } = useParams();
+  console.log(keyword);
+  const searchResult = useSelector((state) => state);
+  console.log('searchResult', searchResult.searchEvent);
   const dispatch = useDispatch();
-  const { loading, events } = useSelector((state) => state.data);
-  console.log('events list', events);
   useEffect(() => {
-    dispatch(getEventList());
-  }, [dispatch]);
+    if (keyword) {
+      dispatch(getEventSearch(keyword));
+    }
+  }, [keyword]);
   return (
     <div className='searchevent'>
-      <h3>Showing 68 Result for "How to"</h3>
-      <div className='search-filter'>
+      <h3>Showing Result</h3>
+      {/* <div className='search-filter'>
         <select
           className='form-select form-select-lg mb-3'
           aria-label='.form-select-lg'
@@ -56,12 +51,12 @@ export default function SearchEvent() {
           <option value='1'>Date</option>
           <option value='2'>Name</option>
         </select>
-      </div>
+      </div> */}
       <div className='search-result'>
         <div className='row row-cols-1 row-cols-md-4 g-4'>
-          {loading
+          {searchResult?.searchEvent?.loading
             ? 'Loading.....'
-            : events.map((item, index) => {
+            : searchResult?.searchEvent?.search?.map((item, index) => {
                 return (
                   <div className='col'>
                     <a href='#'>
@@ -84,7 +79,7 @@ export default function SearchEvent() {
               })}
         </div>
       </div>
-      <Pagination className='justify-content-center'>
+      {/* <Pagination className='justify-content-center'>
         <Pagination.First />
         <Pagination.Prev />
         <Pagination.Item>{1}</Pagination.Item>
@@ -100,7 +95,7 @@ export default function SearchEvent() {
         <Pagination.Item>{20}</Pagination.Item>
         <Pagination.Next />
         <Pagination.Last />
-      </Pagination>
+      </Pagination> */}
     </div>
   );
 }
