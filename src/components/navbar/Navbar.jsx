@@ -15,7 +15,7 @@ export default function Navbar() {
   console.log(setSearch);
   const dispatch = useDispatch();
   const logout = () => {
-    localStorage.removeItem('fakeToken'); // remove token to logout
+    localStorage.removeItem('token');
     window.location.href = '/';
   };
   const [listEvent, setListEvent] = useState([]);
@@ -31,7 +31,7 @@ export default function Navbar() {
     dispatch(getEventSearch(search));
   }, [search]);
   console.log(search);
-  const fakeToken = localStorage.getItem('fakeToken');
+  const authorization = localStorage.getItem('token');
   const location = useLocation();
   console.log(location);
   const Home = window.location.pathname === '/';
@@ -45,48 +45,48 @@ export default function Navbar() {
           <img src={navbarlogo} height='40' alt='...' />
         </a>
 
-        {/* {fakeToken ? ( */}
-        <div className={styles.loginNav}>
-          <div className={styles.searchBar}>
-            <span className={styles.icon}>
-              <FiSearch />
-            </span>
-            <input
-              type='text'
-              placeholder='Search Event'
-              onChange={(e) => e.target.value}
-              onKeyPress={(e) => {
-                if (e.key === 'Enter') {
-                  EventSearch(e.target.value);
-                  // EventSearch(e.target.value);
-                  // navigate('/search', { replace: true });
-                }
-              }}
-              value={search}
-            />
-          </div>
-          <div className={styles.profile}>
-            <img src={Avatar} alt='' />
-            {/* <Link to='/account-page'>My Account</Link> */}
-            <div className={styles.dropdown}>
-              <button className={styles.dropbtn}>Pratur Anahata Pratama</button>
-              <div className={styles.dropdownContent}>
-                <Link to='/account-page'>My Account</Link>
-                <a href='#' onClick={logout}>
-                  Logout
-                </a>
+        {authorization ? (
+          <div className={styles.loginNav}>
+            <div className={styles.searchBar}>
+              <span className={styles.icon}>
+                <FiSearch />
+              </span>
+              <input
+                type='text'
+                placeholder='Search Event'
+                onChange={(e) => e.target.value}
+                onKeyPress={(e) => {
+                  if (e.key === 'Enter') {
+                    EventSearch(e.target.value);
+                    // EventSearch(e.target.value);
+                    // navigate('/search', { replace: true });
+                  }
+                }}
+                value={search}
+              />
+            </div>
+            <div className={styles.profile}>
+              <img src={Avatar} alt='' />
+              {/* <Link to='/account-page'>My Account</Link> */}
+              <div className={styles.dropdown}>
+                <button className={styles.dropbtn}>Pratur Anahata Pratama</button>
+                <div className={styles.dropdownContent}>
+                  <Link to='/account-page'>My Account</Link>
+                  <a href='#' onClick={logout}>
+                    Logout
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        {/* ) : ( */}
-        <div className='col-md-3 pe-3 text-end'>
-          <Link className='me-4' to='/signup'>
-            Sign Up
-          </Link>
-          <Link to='/login'>Sign In</Link>
-        </div>
-        {/* )} */}
+        ) : (
+          <div className='col-md-3 pe-3 text-end'>
+            <Link className='me-4' to='/signup'>
+              Sign Up
+            </Link>
+            <Link to='/login'>Sign In</Link>
+          </div>
+        )}
       </header>
     </div>
   );

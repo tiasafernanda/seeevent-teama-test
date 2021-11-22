@@ -3,6 +3,7 @@ import Styles from '../Login-Form/css/style2.module.css';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import { useDispatch } from 'react-redux';
 import { LoginAction } from '../../store/actions/auth';
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm() {
   const initialValues = { email: '', password: '' };
@@ -10,6 +11,7 @@ function LoginForm() {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const [inputLogin, setInputLogin] = useState({
@@ -24,14 +26,18 @@ function LoginForm() {
   //   });
   // };
 
+  const submitLogin = () => {
+    dispatch(LoginAction(inputLogin));
+  };
+
   const handleChange = (e) => {
     // console.log(e.target);
-    // const { name, value } = e.target;
-    // setFormValues({ ...formValues, [name]: value });
     setInputLogin({
       ...inputLogin,
       [e.target.name]: e.target.value,
     });
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
   };
 
   const handleSubmit = (e) => {
@@ -46,11 +52,6 @@ function LoginForm() {
     // }
     console.log(formErrors);
   }, [formErrors]);
-
-  const submitLogin = () => {
-    dispatch(LoginAction(inputLogin));
-  };
-
   const validate = (values) => {
     console.log(values);
     const errors = {};
@@ -86,7 +87,7 @@ function LoginForm() {
                 type='email'
                 placeholder='Email'
                 value={formValues.email}
-                onChange={(e) => handleChange(e)}
+                onChange={handleChange}
               />
               <p>{formErrors.email}</p>
             </div>
@@ -97,7 +98,7 @@ function LoginForm() {
                 type={passwordVisible ? 'text' : 'password'}
                 placeholder='Password'
                 value={formValues.password}
-                onChange={(e) => handleChange(e)}
+                onChange={handleChange}
               />
               <p>{formErrors.password}</p>
               <button
