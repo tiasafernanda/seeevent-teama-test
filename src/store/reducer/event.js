@@ -9,7 +9,7 @@ const initialState = {
 export default function detailEvent(state = initialState, action) {
   console.log(action.payload);
   switch (action.type) {
-    case type.GET_DETAIL_EVENT_REQUESTED:
+    case type.GET_EVENT_DETAIL_BEGIN:
       return {
         ...state,
         loading: true,

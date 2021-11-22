@@ -1,4 +1,4 @@
-import { GET_EVENTS_BEGIN, GET_EVENT_DETAIL_BEGIN, GET_LIST_EVENT_BEGIN } from './types';
+import { GET_EVENTS_BEGIN, GET_EVENT_DETAIL_BEGIN, GET_LIST_EVENT_BEGIN } from "./types";
 
 export const getEvents = () => {
   return {
