@@ -33,16 +33,16 @@
   position: relative;
   width: 496px;
   height: 247px;
-  left: 6%;
+  left: 9%;
   top: 0px;
 
   font-family: "Poppins";
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 56px;
   line-height: 62px;
   color: #ffffff;
-  letter-spacing: 5px;
+  letter-spacing: 1px;
 }
 
 span {
@@ -74,7 +74,7 @@ span {
   cursor: pointer;
 }
 
-input {
+.cok {
   position: absolute;
   left: 8%;
   top: 25%;

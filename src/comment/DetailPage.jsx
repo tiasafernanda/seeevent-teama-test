@@ -10,35 +10,24 @@ import Save from "../comment/Assets/Save.png";
 // import Header3 from "../comment/Assets/Header3.png";
 import Submit from "../comment/Assets/Submit.png";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { formatProfileName } from "./../helper/FormatProfileName.js";
+import { getDetailEvent } from "../store/actions/eventAction";
 
 const ReviewDetailPage = () => {
   const { id } = useParams();
-  const [dataEvent, setDataEvent] = useState(null);
+  const dispatch = useDispatch();
+  const storeGlobal = useSelector((state) => state.event.detailEvent);
+  console.log(storeGlobal);
   console.log(id, "params");
-  const getApi = async () => {
-    axios
-      .get(`http://see-event.herokuapp.com/event/${id}`, {
-        headers: {
-          access_token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsImZpcnN0X25hbWUiOiJEYXZpZCIsImxhc3RfbmFtZSI6IlJveSIsImVtYWlsIjoiZGF2aWRAcm95LmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJE96RFlDS1JFelI5QkwvaHgwaVN4RU9NZ1J3UzdoaFFSNWV0N2o3cmdISFhHdUgvZGJLRmtDIiwiY3JlYXRlZEF0IjoiMjAyMS0xMS0xNlQwODozMjo1MC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMS0xMS0xNlQwODozMjo1MC4wMDBaIiwiZGVsZXRlZEF0IjpudWxsLCJpYXQiOjE2MzcwNjkxMzN9.-mIvLtDWYskupO58bZMME1c5HurtCjymuu7yhIF2j2I",
-        },
-      })
-      .then((res) => {
-        setDataEvent(res.data.data);
-      })
-
-      .catch((err) => console.log(err));
-  };
-  console.log(dataEvent);
+  // console.log(dataEvent);
   useEffect(() => {
-    getApi();
+    dispatch(getDetailEvent(id));
   }, []);
 
-  const first_name = dataEvent && dataEvent.user.first_name;
-  const last_name = dataEvent && dataEvent.user.last_name;
+  const first_name = storeGlobal && storeGlobal.data.data.user.first_name;
+  const last_name = storeGlobal && storeGlobal.data.data.user.last_name;
 
   const errorImage = true;
 
@@ -47,17 +36,17 @@ const ReviewDetailPage = () => {
       {/* title */}
       <div className="Container2">
         <div className="title">
-          <h1>{dataEvent && dataEvent.event_title}</h1>
+          <h1>{storeGlobal && storeGlobal.data.data.event_title}</h1>
         </div>
         {/* description */}
         <div className="description">
           <img src={Calendar} alt="calendar" />
-          <p className="date-description">{dataEvent && dataEvent.date_and_time}</p>
-          <div className="link">{dataEvent && dataEvent.category.name}</div>
+          <p className="date-description">{storeGlobal && storeGlobal.data.data.date_and_time}</p>
+          <div className="link">{storeGlobal && storeGlobal.data.data.category.name}</div>
         </div>
         <div className="main-image">
           <img
-            src={dataEvent && dataEvent.event_photo}
+            src={storeGlobal && storeGlobal.data.data.event_photo}
             alt="image"
             onError={(e) => {
               e.target.onerror = null;
@@ -71,13 +60,13 @@ const ReviewDetailPage = () => {
             <h3 className="detail-title" data-testid="getTextByTitle">
               Details
             </h3>
-            <p className="paragraph">{dataEvent && dataEvent.event_detail}</p>
+            <p className="paragraph">{storeGlobal && storeGlobal.data.data.event_detail}</p>
 
             {/* comment */}
             <div className="detail">
               <h3 className="detail-title">Comments</h3>
               <div>
-                {/* {dataEvent((item) => (
+                {/* {storeGlobal((item) => (
                   <>
                     <div className="profile-comment" key={item.id}>
                       <div className="info-comment">
@@ -108,12 +97,12 @@ const ReviewDetailPage = () => {
           {/* author */}
           <div className="author">
             <div className="profile-author">
-              {errorImage ? <div className="picture-author">{dataEvent && formatProfileName(first_name, last_name)}</div> : <img src={Header} alt="header" className="picture-author" />}
+              {errorImage ? <div className="picture-author">{storeGlobal && formatProfileName(first_name, last_name)}</div> : <img src={Header} alt="header" className="picture-author" />}
               <div className="name-author">
                 <div className="created">
                   <p className="created-text">Created by</p>
                 </div>
-                <div className="updated-text">{dataEvent && `${dataEvent.user.first_name} ${dataEvent.user.last_name}`}</div>
+                <div className="updated-text">{storeGlobal && `${storeGlobal.data.data.user.first_name} ${storeGlobal.data.data.user.last_name}`}</div>
               </div>
             </div>
             <div className="btn-profile">

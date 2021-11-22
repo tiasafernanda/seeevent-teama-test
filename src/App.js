@@ -15,7 +15,7 @@ function App() {
         <Navbar />
         <Router />
         <Routes>
-          <Route path="/account-page" element={<AccountPage />} />
+          {/* <Route path="/account-page" element={<AccountPage />} /> */}
           <Route path="/detail-page/:id" element={<DetailPage />} />
         </Routes>
         <Footer />

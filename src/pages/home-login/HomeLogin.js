@@ -21,7 +21,7 @@ function HomeLogin() {
           <div className={styles.icon}>
             <BsSearch />
           </div>
-          <input type="text" placeholder="Search Event" />
+          <input className={styles.cok} type="text" placeholder="Search Event" />
         </div>
         <div className={styles.top}>
           <h2>Attend an event starting soon</h2>
