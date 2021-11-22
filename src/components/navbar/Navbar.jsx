@@ -2,7 +2,7 @@ import React from 'react';
 import navbarlogo from './assets/navbar-logo.png';
 import styles from './assets/navbar.module.scss';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Avatar from '../../account/Assets/header.png';
 import { FiSearch } from 'react-icons/fi';
 import axios from 'axios';
@@ -25,11 +25,7 @@ export default function Navbar() {
       .get(`http://see-event.herokuapp.com/home?search=${keyword}`)
       .then((res) => setListEvent(res.data.data));
   };
-  // console.log(EventSearch);
   console.log(listEvent);
-  // useEffect(() => {
-  //   dispatch(getEventSearch(search));
-  // }, [search]);
   console.log(search);
   const authorization = localStorage.getItem('token');
   const location = useLocation();
@@ -58,7 +54,6 @@ export default function Navbar() {
                 onKeyPress={(e) => {
                   if (e.key === 'Enter') {
                     EventSearch(e.target.value);
-                    // EventSearch(e.target.value);
                     navigate(`/search/${search}`, { replace: true });
                   }
                 }}

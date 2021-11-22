@@ -21,8 +21,8 @@ export default function SearchEvent() {
   }, [keyword]);
   return (
     <div className='searchevent'>
-      <h3>Showing 68 Result for "How to"</h3>
-      <div className='search-filter'>
+      <h3>Showing Result</h3>
+      {/* <div className='search-filter'>
         <select
           className='form-select form-select-lg mb-3'
           aria-label='.form-select-lg'
@@ -51,7 +51,7 @@ export default function SearchEvent() {
           <option value='1'>Date</option>
           <option value='2'>Name</option>
         </select>
-      </div>
+      </div> */}
       <div className='search-result'>
         <div className='row row-cols-1 row-cols-md-4 g-4'>
           {searchResult?.searchEvent?.loading
